@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "AttendifySharedProjectC/1.0.0": {
+        "runtime": {
+          "AttendifySharedProjectC.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AttendifySharedProjectC/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

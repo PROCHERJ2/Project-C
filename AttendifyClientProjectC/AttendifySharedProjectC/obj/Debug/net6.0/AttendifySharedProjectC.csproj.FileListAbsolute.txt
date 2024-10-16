@@ -1,0 +1,11 @@
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\bin\Debug\net6.0\AttendifySharedProjectC.deps.json
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\bin\Debug\net6.0\AttendifySharedProjectC.dll
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\bin\Debug\net6.0\AttendifySharedProjectC.pdb
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.AssemblyInfoInputs.cache
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.AssemblyInfo.cs
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.csproj.CoreCompileInputs.cache
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.dll
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\refint\AttendifySharedProjectC.dll
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.pdb
+C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\ref\AttendifySharedProjectC.dll

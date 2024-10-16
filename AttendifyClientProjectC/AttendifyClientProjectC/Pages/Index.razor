@@ -1,0 +1,39 @@
+﻿@page "/"
+@inject NavigationManager Navigation         // this is needed, to allow navigation
+
+
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@inject Services.TestService TestService
+
+<h3>Test the API Connection</h3>
+
+<button @onclick="SendMessage">Send Message to Server</button>
+
+<button @onclick="NavigateToRegister">Register</button>
+
+<p>@responseMessage</p>
+
+@code {
+    private string responseMessage = "No message yet";
+
+    private async Task SendMessage()
+    {
+        var testModel = new AttendifySharedProjectC.Models.TestModel { Message = "Hello from Blazor" };
+        var result = await TestService.SendTestModel(testModel);
+        responseMessage = result.Message;
+    }
+
+    private void NavigateToRegister()
+    {
+        Navigation.NavigateTo("/register");
+    }
+
+}
