@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7x8dRyEj65oLiiJwwEsKFoee2kMY+0NA6VOr2tJbvjno3CUTJdMItQ+M6eiwYqsdQNJi1kQyjUsC0eFktd96Og==",
+  "dgSpecHash": "IeUo5deUS2iCWKWIz8zYExDI/Rmm3C2l3A8rC+saKIYmA7Ig5D3fO0SXPwUQgSsJQ2DuwGaIc6/eWW+9jyfqOw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\xanna\\source\\repos\\AttendifyClientProjectC\\AttendifyClientProjectC\\AttendifyClientProjectC.csproj",
+  "projectFilePath": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\AttendifyClientProjectC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xanna\\.nuget\\packages\\blazored.localstorage\\4.5.0\\blazored.localstorage.4.5.0.nupkg.sha512",
     "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.35\\microsoft.aspnetcore.authorization.6.0.35.nupkg.sha512",

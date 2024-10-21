@@ -2112,11 +2112,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\xanna\\source\\repos\\AttendifyServerProjectC\\AttendifyServerProjectC\\AttendifyServerProjectC.csproj",
+      "projectUniqueName": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyServerProjectC\\AttendifyServerProjectC\\AttendifyServerProjectC.csproj",
       "projectName": "AttendifyServerProjectC",
-      "projectPath": "C:\\Users\\xanna\\source\\repos\\AttendifyServerProjectC\\AttendifyServerProjectC\\AttendifyServerProjectC.csproj",
+      "projectPath": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyServerProjectC\\AttendifyServerProjectC\\AttendifyServerProjectC.csproj",
       "packagesPath": "C:\\Users\\xanna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\xanna\\source\\repos\\AttendifyServerProjectC\\AttendifyServerProjectC\\obj\\",
+      "outputPath": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyServerProjectC\\AttendifyServerProjectC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\xanna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2133,8 +2133,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\xanna\\source\\repos\\AttendifyClientProjectC\\AttendifySharedProjectC\\AttendifySharedProjectC.csproj": {
-              "projectPath": "C:\\Users\\xanna\\source\\repos\\AttendifyClientProjectC\\AttendifySharedProjectC\\AttendifySharedProjectC.csproj"
+            "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifySharedProjectC\\AttendifySharedProjectC.csproj": {
+              "projectPath": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifySharedProjectC\\AttendifySharedProjectC.csproj"
             }
           }
         }

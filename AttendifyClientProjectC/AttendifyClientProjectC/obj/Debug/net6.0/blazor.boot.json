@@ -198,15 +198,15 @@
       "mscorlib.dll": "sha256-A6wItfWPxWCE3EJL\/iV+cnIsrbk4EUvtmnEArytjGXI=",
       "netstandard.dll": "sha256-tRd8cJrm2jrfdHVAhxop4KpXsOTSdIq390XUlbKeE9U=",
       "System.Private.CoreLib.dll": "sha256-srLiFzlxO2Mt3CHpnujmljIUDZTd01TPKPNZ61tQplc=",
-      "AttendifySharedProjectC.dll": "sha256-AXXTsFmfacQdBeAMi13780wPiHl4gVQoBjlaLXSZPFQ=",
-      "AttendifyClientProjectC.dll": "sha256-B+I3PGNHAvd+LDUvnw192yduduFjYPXb0B4IiNIOYUY="
+      "AttendifySharedProjectC.dll": "sha256-eEZ3bl5QkYRLEJxM63XxtReOoVOlRj2coiD20n34384=",
+      "AttendifyClientProjectC.dll": "sha256-y06Sv6JnUNckDxGkSdybZn86D7TK2G0vbnhf\/sgKek4="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "AttendifySharedProjectC.pdb": "sha256-VcWXb3t+v0ZpLVVhdH7kZKs8FT6RHNKwefQIjzbJqXE=",
-      "AttendifyClientProjectC.pdb": "sha256-Ge2ZzKQkeqQGdDQINAGO61LlyYNMNftOu\/r6kiuHnAM="
+      "AttendifySharedProjectC.pdb": "sha256-VqpORsBRqIGdWV31s1qIneVSqWEMDd7BKXzO7\/hh1qQ=",
+      "AttendifyClientProjectC.pdb": "sha256-L4h\/S4Kq\/X0dbeN2SbnK5wTrmUTJn+XYq3uIoxOEC9Y="
     },
     "runtime": {
       "dotnet.6.0.23.if85c14r78.js": "sha256-ZwZyyu2NI0gFyE96Al4f0bglhDBXW\/uMhBqWLYgjWms=",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p8Cz/6XeJ/sWy/GRg+gVaxs8uh4V9Snyj6mXCmkQN6xv3HTOFO56TfAMof9D/1xR/vIRdKnthSP5WWkaWyC5Tw==",
+  "dgSpecHash": "vmogKFbTPypNrZLCA1BaE78Aen8G75N+ZLRskbiC9e1diMj3BTgN/OD2yOWeg5sexc7/bxvoixqtlUAFhBoW3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\xanna\\source\\repos\\AttendifyServerProjectC\\AttendifyServerProjectC\\AttendifyServerProjectC.csproj",
+  "projectFilePath": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyServerProjectC\\AttendifyServerProjectC\\AttendifyServerProjectC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.35\\microsoft.aspnetcore.authentication.jwtbearer.6.0.35.nupkg.sha512",
     "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.35\\microsoft.aspnetcore.cryptography.internal.6.0.35.nupkg.sha512",

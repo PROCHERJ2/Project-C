@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\xanna\\source\\repos\\AttendifyClientProjectC\\AttendifySharedProjectC\\AttendifySharedProjectC.csproj",
+      "projectUniqueName": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifySharedProjectC\\AttendifySharedProjectC.csproj",
       "projectName": "AttendifySharedProjectC",
-      "projectPath": "C:\\Users\\xanna\\source\\repos\\AttendifyClientProjectC\\AttendifySharedProjectC\\AttendifySharedProjectC.csproj",
+      "projectPath": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifySharedProjectC\\AttendifySharedProjectC.csproj",
       "packagesPath": "C:\\Users\\xanna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\xanna\\source\\repos\\AttendifyClientProjectC\\AttendifySharedProjectC\\obj\\",
+      "outputPath": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifySharedProjectC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\xanna\\AppData\\Roaming\\NuGet\\NuGet.Config",

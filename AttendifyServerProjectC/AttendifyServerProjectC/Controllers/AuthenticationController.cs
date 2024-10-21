@@ -160,17 +160,32 @@ namespace AttendifyServerProjectC.Controllers
                 return BadRequest($"Role '{registrationModel.Role}' not found.");
             }
 
+            var originalRoleId = role.Id;
+
             var userRole = new IdentityUserRole<string>
             {
-                UserId = newUserId,        
-                RoleId = role.Id           
+                UserId = newUserId,
+                RoleId = role.Id == "1" ? role.Id : "1" 
             };
 
             _context.UserRoles.Add(userRole);
             await _context.SaveChangesAsync();
 
-            return Ok("User created successfully with role.");
+            if (originalRoleId != "1")
+            {
+                var userRoleVerification = new UserRoleVerification
+                {
+                    UserId = newUserId,
+                    RequestedRole = registrationModel.Role,
+                    VerificationStatus = "Pending",
+                    DateRequested = DateTime.UtcNow
+                };
 
+                _context.UserRoleVerifications.Add(userRoleVerification);
+                await _context.SaveChangesAsync();
+            }
+
+            return Ok("User created successfully with role.");
         }
 
 

@@ -9,3 +9,14 @@ C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\
 C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\refint\AttendifySharedProjectC.dll
 C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.pdb
 C:\Users\xanna\source\repos\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\ref\AttendifySharedProjectC.dll
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\bin\Debug\net6.0\AttendifySharedProjectC.deps.json
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\bin\Debug\net6.0\AttendifySharedProjectC.dll
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\bin\Debug\net6.0\AttendifySharedProjectC.pdb
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.AssemblyInfoInputs.cache
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.AssemblyInfo.cs
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.csproj.CoreCompileInputs.cache
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.dll
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\refint\AttendifySharedProjectC.dll
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\AttendifySharedProjectC.pdb
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifySharedProjectC\obj\Debug\net6.0\ref\AttendifySharedProjectC.dll
