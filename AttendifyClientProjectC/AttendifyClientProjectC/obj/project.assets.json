@@ -72,10 +72,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/6.0.24": {
+      "Microsoft.AspNetCore.Components.Forms/6.0.35": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.24"
+          "Microsoft.AspNetCore.Components": "6.0.35"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -88,13 +88,13 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Web/6.0.24": {
+      "Microsoft.AspNetCore.Components.Web/6.0.35": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.24",
-          "Microsoft.AspNetCore.Components.Forms": "6.0.24",
+          "Microsoft.AspNetCore.Components": "6.0.35",
+          "Microsoft.AspNetCore.Components.Forms": "6.0.35",
           "Microsoft.Extensions.DependencyInjection": "6.0.1",
-          "Microsoft.JSInterop": "6.0.24",
+          "Microsoft.JSInterop": "6.0.35",
           "System.IO.Pipelines": "6.0.3"
         },
         "compile": {
@@ -129,6 +129,29 @@
         },
         "build": {
           "build/net6.0/Microsoft.AspNetCore.Components.WebAssembly.props": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication/6.0.35": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Authorization": "6.0.35",
+          "Microsoft.AspNetCore.Components.Web": "6.0.35"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
         }
       },
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer/6.0.24": {
@@ -403,7 +426,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.JSInterop/6.0.24": {
+      "Microsoft.JSInterop/6.0.35": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.JSInterop.dll": {
@@ -610,10 +633,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/6.0.24": {
+      "Microsoft.AspNetCore.Components.Forms/6.0.35": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.24"
+          "Microsoft.AspNetCore.Components": "6.0.35"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -626,13 +649,13 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Web/6.0.24": {
+      "Microsoft.AspNetCore.Components.Web/6.0.35": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.24",
-          "Microsoft.AspNetCore.Components.Forms": "6.0.24",
+          "Microsoft.AspNetCore.Components": "6.0.35",
+          "Microsoft.AspNetCore.Components.Forms": "6.0.35",
           "Microsoft.Extensions.DependencyInjection": "6.0.1",
-          "Microsoft.JSInterop": "6.0.24",
+          "Microsoft.JSInterop": "6.0.35",
           "System.IO.Pipelines": "6.0.3"
         },
         "compile": {
@@ -667,6 +690,29 @@
         },
         "build": {
           "build/net6.0/Microsoft.AspNetCore.Components.WebAssembly.props": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication/6.0.35": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Authorization": "6.0.35",
+          "Microsoft.AspNetCore.Components.Web": "6.0.35"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
         }
       },
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer/6.0.24": {
@@ -941,7 +987,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.JSInterop/6.0.24": {
+      "Microsoft.JSInterop/6.0.35": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.JSInterop.dll": {
@@ -1154,10 +1200,10 @@
         "microsoft.aspnetcore.components.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Forms/6.0.24": {
-      "sha512": "FoB8l4c41kb3TvnMHtKg5/FkHScu0Zf7EIIxTYQ5tJYQqa6rj0lshBczq//14JinzxD7FrhwCz2LPbccBYBi9A==",
+    "Microsoft.AspNetCore.Components.Forms/6.0.35": {
+      "sha512": "xEpA3XhlPYzcSyebOZdkHdOqfqrn/tNwug+c8hYzGFxjrzyBs0rM16eebo0VcpviW5yqzoYLC6ltySP6kjOgig==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/6.0.24",
+      "path": "microsoft.aspnetcore.components.forms/6.0.35",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1165,14 +1211,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.6.0.24.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.6.0.35.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Web/6.0.24": {
-      "sha512": "x32VCTwtGhLh2UwemZXlFP8/U4K+EmvKrm91Dw0OXL+XydDywhubH+/03dMWk5WCjUk64DYYe5flxIXFM0Rodg==",
+    "Microsoft.AspNetCore.Components.Web/6.0.35": {
+      "sha512": "qKVC4CFGTwpAzfQaVY6aSAbPDBt0hUE5HacH81BZH+Gc+KweKuHgG63QPB/l5BXVHm8hYe+1ItE3DGO8j5DdBw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.web/6.0.24",
+      "path": "microsoft.aspnetcore.components.web/6.0.35",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1180,7 +1226,7 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.6.0.24.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.6.0.35.nupkg.sha512",
         "microsoft.aspnetcore.components.web.nuspec"
       ]
     },
@@ -1199,6 +1245,26 @@
         "lib/net6.0/Microsoft.AspNetCore.Components.WebAssembly.xml",
         "microsoft.aspnetcore.components.webassembly.6.0.24.nupkg.sha512",
         "microsoft.aspnetcore.components.webassembly.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.WebAssembly.Authentication/6.0.35": {
+      "sha512": "7qEMxAWZiGr3461u+xjYzCWKqQ2ByGwO4J5AyqjLZu2M4tPCJPkqyGGlhDQfbKHk23RUJsubSzJ+gSGm5KXBvQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.webassembly.authentication/6.0.35",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "lib/net6.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.xml",
+        "microsoft.aspnetcore.components.webassembly.authentication.6.0.35.nupkg.sha512",
+        "microsoft.aspnetcore.components.webassembly.authentication.nuspec",
+        "staticwebassets/AuthenticationService.js"
       ]
     },
     "Microsoft.AspNetCore.Components.WebAssembly.DevServer/6.0.24": {
@@ -1677,10 +1743,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.JSInterop/6.0.24": {
-      "sha512": "Zpc4xaQFxT3YerCt+FO0ZaO723khrl/AX3iQ+pgVAvHNiaKjrSlNb+IOOwPH9RDfu38jzltlpKC3Lb4JCtYxZg==",
+    "Microsoft.JSInterop/6.0.35": {
+      "sha512": "P7H/qHsxiLRs6lS2/RSGzXWQDkIC6f496OahhVKpmTomnW6o9baSRai4xe65VkJVhdN9nV+jzUNrmxR3lYKDjQ==",
       "type": "package",
-      "path": "microsoft.jsinterop/6.0.24",
+      "path": "microsoft.jsinterop/6.0.35",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1688,7 +1754,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net6.0/Microsoft.JSInterop.dll",
         "lib/net6.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.6.0.24.nupkg.sha512",
+        "microsoft.jsinterop.6.0.35.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
       ]
     },
@@ -1875,6 +1941,7 @@
       "Blazored.LocalStorage >= 4.5.0",
       "Microsoft.AspNetCore.Components.Authorization >= 6.0.35",
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.24",
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 6.0.35",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.24"
     ]
   },
@@ -1932,6 +1999,10 @@
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",
             "version": "[6.0.24, )"
+          },
+          "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+            "target": "Package",
+            "version": "[6.0.35, )"
           },
           "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
             "suppressParent": "All",

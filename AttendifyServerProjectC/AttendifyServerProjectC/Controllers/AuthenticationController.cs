@@ -74,22 +74,45 @@ namespace AttendifyServerProjectC.Controllers
         [HttpGet("user")]
         public async Task<IActionResult> GetUser()
         {
-            var accessToken = Request.Headers["Authorization"].ToString().Substring("Bearer ".Length).Trim();
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var principal = tokenHandler.ValidateToken(accessToken, _tokenValidationParameters, out var _);
-            var user = await _userManager.GetUserAsync(principal);
-            if (user == null)
+            _logger.LogInformation("Inside Get User");
+           var authorizationHeader = Request.Headers["Authorization"].ToString();
+            _logger.LogInformation($"authorizeationheader:{authorizationHeader}");
+            if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith("Bearer "))
             {
-                return NotFound();
+                return Unauthorized("Authorization header is missing or invalid.");
             }
 
-            var claims = new Dictionary<string, string>
+            var accessToken = authorizationHeader.Substring("Bearer ".Length).Trim();
+
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized("Token is missing.");
+            }
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            try
+            {
+                var principal = tokenHandler.ValidateToken(accessToken, _tokenValidationParameters, out var _);
+                var user = await _userManager.GetUserAsync(principal);
+
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                var claims = new Dictionary<string, string>
         {
             { "email", user.Email }
         };
 
-            return Ok(claims);
+                return Ok(claims);
+            }
+            catch (SecurityTokenException)
+            {
+                return Unauthorized("Invalid token.");
+            }
         }
+
 
         private string GenerateJwtToken(IdentityUser user)
         {

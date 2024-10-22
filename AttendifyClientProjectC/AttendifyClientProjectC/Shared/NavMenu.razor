@@ -30,6 +30,8 @@
             </NavLink>
         </div>
         <div class="nav-item px-3">
+            @* <button @onclick="LogoutAsync">Logout</button>
+            <NavLink href="login">Login</NavLink> *@
             <AuthorizeView>
                 <Authorized>
                     <button @onclick="LogoutAsync">Logout</button>

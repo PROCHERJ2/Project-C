@@ -1454,8 +1454,6 @@ C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientP
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\g7GLBIvC.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\+8sd4FOH.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\qdTlV0sz.gz
-C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\KHZQBX4v.gz
-C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\cbyPHXlt.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\01Mrz+nD.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\lFdJZcuK.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\FrY+JqgO.gz
@@ -1472,7 +1470,6 @@ C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientP
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\8OqUhBQX.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\4tZjnDAv.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\olYY89Iv.gz
-C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\EWf84P7H.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\iqkxBnfE.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\+DZRZgzJ.gz
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\HsEi7XwT.gz
@@ -1670,3 +1667,10 @@ C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientP
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\refint\AttendifyClientProjectC.dll
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\AttendifyClientProjectC.pdb
 C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\ref\AttendifyClientProjectC.dll
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll.gz
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\bin\Debug\net6.0\Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\g4iK10EZ.gz
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\Ca2NfpLp.gz
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\zNRTAfT0.gz
+C:\Users\xanna\Bureaublad\Github Repository Project C\Project-C\AttendifyClientProjectC\AttendifyClientProjectC\obj\Debug\net6.0\build-gz\DR0DMB+i.gz

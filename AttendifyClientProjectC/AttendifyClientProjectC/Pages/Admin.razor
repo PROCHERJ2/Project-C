@@ -1,4 +1,12 @@
-﻿<h3>Admin</h3>
+﻿@inject Services.AuthenticationService AuthService
+@inject Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider AuthenticationStateProvider
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Authorization
+
+@page "/admin"
+@attribute [Authorize]
+
+<h3>Admin</h3>
 
 @code {
 

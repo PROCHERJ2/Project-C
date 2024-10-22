@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FuxRpibZP9yydHAQOpF35HHhnBDCg+eUqm6+m63wDpo=",
+  "Hash": "O81hM089w8PK59r+Cp7G5TbiVbqOLW+WzL1uLzEB0Ms=",
   "Source": "AttendifyClientProjectC",
   "BasePath": "/",
   "Mode": "Root",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\6.0.35\\staticwebassets\\AuthenticationService.js",
+      "SourceId": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\6.0.35\\staticwebassets\\",
+      "BasePath": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+      "RelativePath": "AuthenticationService.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\6.0.35\\staticwebassets\\AuthenticationService.js"
+    },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AttendifyClientProjectC.dll",
       "SourceId": "AttendifyClientProjectC",
@@ -320,7 +337,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.24\\lib\\net6.0\\Microsoft.AspNetCore.Components.Forms.dll"
+      "OriginalItemSpec": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.35\\lib\\net6.0\\Microsoft.AspNetCore.Components.Forms.dll"
     },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
@@ -337,7 +354,24 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.24\\lib\\net6.0\\Microsoft.AspNetCore.Components.Web.dll"
+      "OriginalItemSpec": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.35\\lib\\net6.0\\Microsoft.AspNetCore.Components.Web.dll"
+    },
+    {
+      "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
+      "SourceId": "AttendifyClientProjectC",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\6.0.35\\lib\\net6.0\\Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll"
     },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll",
@@ -643,7 +677,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.jsinterop\\6.0.24\\lib\\net6.0\\Microsoft.JSInterop.dll"
+      "OriginalItemSpec": "C:\\Users\\xanna\\.nuget\\packages\\microsoft.jsinterop\\6.0.35\\lib\\net6.0\\Microsoft.JSInterop.dll"
     },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll",
@@ -4386,6 +4420,23 @@
       "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.FileSystem.dll"
     },
     {
+      "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\Ca2NfpLp.gz",
+      "SourceId": "AttendifyClientProjectC",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Web.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll"
+    },
+    {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\cAc7q6lt.gz",
       "SourceId": "AttendifyClientProjectC",
       "SourceType": "Computed",
@@ -4401,23 +4452,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\mscorlib.dll"
-    },
-    {
-      "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\cbyPHXlt.gz",
-      "SourceId": "AttendifyClientProjectC",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Web.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll"
     },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\cfqYafYW.gz",
@@ -4556,6 +4590,23 @@
       "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.Http.dll"
     },
     {
+      "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\DR0DMB+i.gz",
+      "SourceId": "AttendifyClientProjectC",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.JSInterop.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll"
+    },
+    {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\drfsTMMl.gz",
       "SourceId": "AttendifyClientProjectC",
       "SourceType": "Computed",
@@ -4656,23 +4707,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.FileProviders.Abstractions.dll"
-    },
-    {
-      "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\EWf84P7H.gz",
-      "SourceId": "AttendifyClientProjectC",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.JSInterop.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll"
     },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\EyDyj7PG.gz",
@@ -4860,6 +4894,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.Tools.dll"
+    },
+    {
+      "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\g4iK10EZ.gz",
+      "SourceId": "AttendifyClientProjectC",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Forms.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll"
     },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\g7GLBIvC.gz",
@@ -5421,23 +5472,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.ServiceModel.Web.dll"
-    },
-    {
-      "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\KHZQBX4v.gz",
-      "SourceId": "AttendifyClientProjectC",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Forms.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll"
     },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\KI+CT99P.gz",
@@ -6917,6 +6951,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.Contracts.dll"
+    },
+    {
+      "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\zNRTAfT0.gz",
+      "SourceId": "AttendifyClientProjectC",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll"
     },
     {
       "Identity": "C:\\Users\\xanna\\Bureaublad\\Github Repository Project C\\Project-C\\AttendifyClientProjectC\\AttendifyClientProjectC\\obj\\Debug\\net6.0\\build-gz\\zw+vWwmx.gz",
