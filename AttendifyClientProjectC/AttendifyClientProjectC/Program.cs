@@ -18,9 +18,18 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 //Dont forget to put services here!
 builder.Services.AddScoped<TestService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
-builder.Services.AddAuthorizationCore();
+//builder.Services.AddAuthorizationCore();
+builder.Services.AddAuthorizationCore(options =>
+{
+    options.AddPolicy("IsAllowedPolicy", policy =>
+        policy.Requirements.Add(new IsAllowedRequirement(true))); 
+}); // this works! huzzah
+
+builder.Services.AddSingleton<IAuthorizationHandler, IsAllowedHandler>();
 builder.Services.AddSingleton<IAuthorizationPolicyProvider,DefaultAuthorizationPolicyProvider>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<EmailService>();
+
+
 
 await builder.Build().RunAsync();

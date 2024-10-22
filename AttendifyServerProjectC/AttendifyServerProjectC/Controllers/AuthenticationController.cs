@@ -142,7 +142,6 @@ namespace AttendifyServerProjectC.Controllers
 
         //-----------------------------------------------------------login--------------------------------------------------------
 
-        //new create user
         [HttpPost("create-user")]
         public async Task<IActionResult> CreateUser(AttendifySharedProjectC.Models.RegistrationModel registrationModel)
         {
