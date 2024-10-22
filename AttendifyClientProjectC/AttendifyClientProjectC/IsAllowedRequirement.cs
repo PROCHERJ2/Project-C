@@ -2,7 +2,8 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using System.Threading.Tasks;
-
+    
+    //This class was basically just for testing to create custom policies. will be removed later
     public class IsAllowedRequirement : IAuthorizationRequirement
     {
         public bool IsAllowed { get; }

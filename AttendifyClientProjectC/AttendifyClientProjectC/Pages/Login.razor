@@ -34,14 +34,18 @@
     private async Task AttemptLogin()
     {
         var response = await Http.PostAsJsonAsync("https://localhost:7059/api/authentication/login", loginModel);
+
         if (response.IsSuccessStatusCode)
         {
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var token = JsonSerializer.Deserialize<Dictionary<string, string>>(responseContent)["token"];
+            var tokenResponse = await response.Content.ReadFromJsonAsync<TokenResponse>();
+            var token = tokenResponse.Token.Result; 
+
             await LocalStorage.SetItemAsStringAsync("accessToken", token);
             await authService.SetAuthorizationHeaderAsync();
 
-            Navigation.NavigateTo("/");
+            StateHasChanged();  //HEY THERE PIETER AND CHE! dit refreshed de UI. Heel handig :)
+
+            Navigation.NavigateTo("/", forceLoad: true);  // the forceload true is so that the navbar refreshes so that login button goes away
         }
         else
         {
@@ -49,9 +53,14 @@
         }
     }
 
-    // private class LoginModel
-    // {
-    //     public string Email { get; set; }
-    //     public string Password { get; set; }
-    // }
+    public class TokenResponse
+    {
+        public TokenData Token { get; set; }
+    }
+
+    public class TokenData
+    {
+        public string Result { get; set; }
+    }
+
 }

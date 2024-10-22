@@ -77,129 +77,8 @@
     </EditForm>
 }
 
-@*this part is without email sending*@
-@* 
-<EditForm Model="@registrationModel" OnValidSubmit="HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-
-    <div class="field">
-        <label for="name">Name:</label>
-        <InputText id="name" @bind-Value="registrationModel.Name" disabled="@isAccountCreated" class="@(!isNameValid ? "input-invalid" : "")" @onblur="ValidateName" />
-        @if (!isNameValid)
-        {
-            <span class="text-danger">Name is required.</span>
-        }
-    </div>
-
-    <div class="field">
-        <label for="email">Email:</label>
-        <InputText id="email" @bind-Value="registrationModel.Email" disabled="@isAccountCreated" class="@(!isEmailValid ? "input-invalid" : "")" @onblur="ValidateEmail" />
-        @if (!isEmailValid)
-        {
-            <span class="text-danger">Please enter a valid email address.</span>
-        }
-    </div>
-
-    <div class="field">
-        <label for="password">Password:</label>
-        <InputText id="password" @bind-Value="registrationModel.Password" disabled="@isAccountCreated" type="password" class="@(!isPasswordValid ? "input-invalid" : "")" @onblur="ValidatePassword" />
-        @if (!isPasswordValid)
-        {
-            <span class="text-danger">Password must be at least 6 characters.</span>
-        }
-    </div>
-
-    <div class="field">
-        <label for="verifyPassword">Verify Password:</label>
-        <InputText id="verifyPassword" @bind-Value="registrationModel.VerifyPassword" disabled="@isAccountCreated" type="password" class="@(!isVerifyPasswordValid ? "input-invalid" : "")" @onblur="ValidateVerifyPassword" />
-        @if (!isVerifyPasswordValid)
-        {
-            <span class="text-danger">Passwords do not match.</span>
-        }
-    </div>
-
-    <div class="field">
-        <label for="role">Role:</label>
-        <InputSelect id="role" @bind-Value="registrationModel.Role" disabled="@isAccountCreated">
-            <option value="Student">Student</option>
-            <option value="Teacher">Teacher</option>
-        </InputSelect>
-    </div>
-
-    @if (!isAccountCreated)
-    {
-        <button type="submit" class="btn btn-primary">Create Account</button>
-    }
-</EditForm>
-
-@if (isAccountCreated)
-{
-    <EditForm Model="@verificationModel">
-        <p>A verification code has been sent to your email! Please enter the code below:</p>
-
-        <div class="field">
-            <label for="verificationCode">Verification Code:</label>
-            <InputText id="verificationCode" @bind-Value="verificationModel.VerificationCode" />
-        </div>
-
-        <button @onclick="ConfirmAccount" class="btn btn-success">Confirm</button>
-        <button @onclick="CancelAccountCreation" class="btn btn-danger">Cancel</button>
-    </EditForm>
-} *@
-
-@* <EditForm Model="@registrationModel" OnValidSubmit="HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-
-    <div class="field">
-        <label for="name">Name:</label>
-        <InputText id="name" @bind-Value="registrationModel.Name" class="@(!isNameValid ? "input-invalid" : "")" @onblur="ValidateName" />
-        @if (!isNameValid)
-        {
-            <span class="text-danger">Name is required.</span>
-        }
-    </div>
-
-    <div class="field">
-        <label for="email">Email:</label>
-        <InputText id="email" @bind-Value="registrationModel.Email" class="@(!isEmailValid ? "input-invalid" : "")" @onblur="ValidateEmail" />
-        @if (!isEmailValid)
-        {
-            <span class="text-danger">Please enter a valid email address.</span>
-        }
-    </div>
-
-    <div class="field">
-        <label for="password">Password:</label>
-        <InputText id="password" @bind-Value="registrationModel.Password" type="password" class="@(!isPasswordValid ? "input-invalid" : "")" @onblur="ValidatePassword" />
-        @if (!isPasswordValid)
-        {
-            <span class="text-danger">Password must be at least 6 characters.</span>
-        }
-    </div>
-
-    <div class="field">
-        <label for="verifyPassword">Verify Password:</label>
-        <InputText id="verifyPassword" @bind-Value="registrationModel.VerifyPassword" type="password" class="@(!isVerifyPasswordValid ? "input-invalid" : "")" @onblur="ValidateVerifyPassword" />
-        @if (!isVerifyPasswordValid)
-        {
-            <span class="text-danger">Passwords do not match.</span>
-        }
-    </div>
-
-    <div class="field">
-        <label for="role">Role:</label>
-        <InputSelect id="role" @bind-Value="registrationModel.Role">
-            <option value="Student">Student</option>
-            <option value="Teacher">Teacher</option>
-        </InputSelect>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Create Account</button>
-</EditForm> *@
-
 @code {
+    [Inject] public NavigationManager Navigation { get; set; }
     private AttendifySharedProjectC.Models.RegistrationModel registrationModel = new AttendifySharedProjectC.Models.RegistrationModel();
     private AttendifySharedProjectC.Models.EmailVerificationCodeModel verificationModel = new AttendifySharedProjectC.Models.EmailVerificationCodeModel();
     private bool isNameValid = true;
@@ -264,59 +143,20 @@
             if (result == "Account created!")
             {
                 Console.WriteLine("Account created!");
+                Navigation.NavigateTo("/");
             }
             else
             {
                 Console.WriteLine("NOPE");
             }
         }
-        // var result = await AuthenticationService.VerifyTokenAsync(verificationModel.VerificationCode);
-
-        // if (result == "Account created!")
-        // {
-        //     Console.WriteLine("Account created!");
-        // }
-        // else
-        // {
-        //     Console.WriteLine("NOPE");
-        // }
     }
-
-
-    // private void HandleValidSubmit()
-    // {
-    //     if (isNameValid && isEmailValid && isPasswordValid && isVerifyPasswordValid)
-    //     {
-    //         isAccountCreated = true;
-    //     }
-    // }
-
-    // private void ConfirmAccount()
-    // {
-    //     // Code to confirm the account will go here in the future
-    //     Console.WriteLine("Account confirmed.");
-    // }
 
     private void CancelAccountCreation()
     {
-        // Revert back to the original form state without clearing the fields
         isAccountCreated = false;
     }
 
-    // private void HandleValidSubmit()
-    // {
-    //     // For now, this won't do anything. You can add functionality later.
-    //     Console.WriteLine("Form submitted.");
-    // }
-
-    // public class RegistrationModel
-    // {
-    //     public string Name { get; set; }
-    //     public string Email { get; set; }
-    //     public string Password { get; set; }
-    //     public string VerifyPassword { get; set; }
-    //     public string Role { get; set; } = "Student"; // Default to "Student"
-    // }
 }
 <style>
     .input-invalid {

@@ -16,7 +16,20 @@ namespace AttendifyClientProjectC.Services
             _localStorage = localStorage;
         }
 
-        //login stuff
+        //------------------------------------------------------login stuff-------------------------------------------------------------
+
+        //for user roles
+        public async Task StoreUserRoleAsync(string role)
+        {
+            await _localStorage.SetItemAsStringAsync("userRole", role);
+        }
+
+        public async Task<string> GetUserRoleAsync()
+        {
+            return await _localStorage.GetItemAsStringAsync("userRole");
+        }
+        //for user roles
+
         public async Task SetAuthorizationHeaderAsync()
         {
             var accessToken = await _localStorage.GetItemAsStringAsync("accessToken");
@@ -29,10 +42,11 @@ namespace AttendifyClientProjectC.Services
         public async Task LogoutAsync()
         {
             await _localStorage.RemoveItemAsync("accessToken");
+            await _localStorage.RemoveItemAsync("userRole");
             _httpClient.DefaultRequestHeaders.Authorization = null;
         }
 
-        //login stuff
+        //------------------------------------------------------login stuff-------------------------------------------------------------
 
         //email stuff
         public async Task<string> GenerateVerificationTokenAsync()

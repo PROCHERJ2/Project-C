@@ -2,13 +2,197 @@
 @inject Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider AuthenticationStateProvider
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Authorization
+@using AttendifySharedProjectC.Models
+
+@inject Services.AdminUserService AdminUserService
+
 
 @page "/admin"
-@* @attribute [Authorize] *@
-@attribute [Authorize(Policy = "IsAllowedPolicy")]
 
+
+@* @attribute [Authorize] *@
+@* @attribute [Authorize(Policy = "IsAllowedPolicy")]
+ *@
+@attribute [Authorize(Policy = "IsAdminPolicy")]
 <h3>Admin</h3>
 
-@code {
+<h3>Admin Panel - User List</h3>
+
+@if (users == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>User ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in paginatedUsers)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                    <td>@user.Id</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="pagination-controls">
+        <button class="btn btn-primary" @onclick="PreviousPage" disabled="@(!canGoBack)">Previous</button>
+        <span>Page @currentPage of @totalPages</span>
+        <button class="btn btn-primary" @onclick="NextPage" disabled="@(!canGoNext)">Next</button>
+    </div>
+
+
+    <h3>User Role Verifications</h3>
+
+    @if (roleVerifications != null && roleVerifications.Count > 0)
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>ID</th>
+                    <th>Current Role</th>
+                    <th>Requested Role</th>
+                    <th>Verification Status</th>
+                    <th>Date Requested</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var verification in roleVerifications)
+                {
+                    <tr class="@GetRowClass(verification.VerificationStatus)">
+                        <td>@verification.UserName</td>
+                        <td>@verification.UserId</td>
+                        <td>@verification.CurrentRole</td>
+                        <td>@verification.RequestedRole</td>
+                        <td>@verification.VerificationStatus</td>
+                        <td>@verification.DateRequested.ToString("g")</td>
+                        <td>
+                            <button class="btn btn-success" @onclick="() => AcceptRequest(verification)">✔</button>
+                            <button class="btn btn-danger" @onclick="() => DenyRequest(verification)">✘</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No role verification requests at the moment.</p>
+    }
+
+
 
 }
+
+@code {
+    private List<UserDto> users;
+    private List<UserDto> paginatedUsers;
+    private int currentPage = 1;
+    private int pageSize = 10; 
+    private int totalPages;
+    private bool canGoBack => currentPage > 1;
+    private bool canGoNext => currentPage < totalPages;
+
+    private List<RoleVerificationDto> roleVerifications;
+
+    protected override async Task OnInitializedAsync()
+    {
+        roleVerifications = await AdminUserService.GetUserRoleVerifications();
+        users = await AdminUserService.GetUsers();
+        totalPages = (int)Math.Ceiling(users.Count / (double)pageSize);
+        UpdatePaginatedUsers();
+    }
+
+    private void UpdatePaginatedUsers()
+    {
+        paginatedUsers = users
+            .OrderBy(u => u.UserName)
+            .Skip((currentPage - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+    }
+
+    private void NextPage()
+    {
+        if (canGoNext)
+        {
+            currentPage++;
+            UpdatePaginatedUsers();
+        }
+    }
+
+    private void PreviousPage()
+    {
+        if (canGoBack)
+        {
+            currentPage--;
+            UpdatePaginatedUsers();
+        }
+    }
+
+    private async Task AcceptRequest(RoleVerificationDto verification)
+    {
+        var success = await AdminUserService.AcceptRequestAsync(verification.UserId);
+
+        if (success)
+        {
+            verification.VerificationStatus = "Accepted";
+        }
+    }
+
+    private async Task DenyRequest(RoleVerificationDto verification)
+    {
+        var success = await AdminUserService.DenyRequestAsync(verification.UserId);
+
+        if (success)
+        {
+            verification.VerificationStatus = "Denied";
+        }
+    }
+
+    private string GetRowClass(string status)
+    {
+        return status switch
+        {
+            "Accepted" => "bg-success text-white", 
+            "Denied" => "bg-danger text-white",    
+            _ => ""  
+        };
+    }
+
+
+
+    public class RoleVerificationDto
+    {
+        public string UserId { get; set; }
+        public string UserName { get; set; }
+        public string CurrentRole { get; set; }
+        public string RequestedRole { get; set; }
+        public string VerificationStatus { get; set; }
+        public DateTime DateRequested { get; set; }
+    }
+
+}
+<style>
+    .bg-success {
+        background-color: #d4edda !important;
+    }
+
+    .bg-danger {
+        background-color: #f8d7da !important;
+    }
+</style>
+

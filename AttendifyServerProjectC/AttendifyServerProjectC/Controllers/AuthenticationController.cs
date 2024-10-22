@@ -64,32 +64,25 @@ namespace AttendifyServerProjectC.Controllers
             var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, false);
             if (result.Succeeded)
             {
-                var token = GenerateJwtToken(user);
+                var token = GenerateJwtTokenAsync(user);
                 return Ok(new { token });
             }
 
             return BadRequest("Invalid login attempt.");
         }
-
         [HttpGet("user")]
         public async Task<IActionResult> GetUser()
         {
-            _logger.LogInformation("Inside Get User");
-           var authorizationHeader = Request.Headers["Authorization"].ToString();
-            _logger.LogInformation($"authorizeationheader:{authorizationHeader}");
+            var authorizationHeader = Request.Headers["Authorization"].ToString();
+
             if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith("Bearer "))
             {
                 return Unauthorized("Authorization header is missing or invalid.");
             }
 
             var accessToken = authorizationHeader.Substring("Bearer ".Length).Trim();
-
-            if (string.IsNullOrEmpty(accessToken))
-            {
-                return Unauthorized("Token is missing.");
-            }
-
             var tokenHandler = new JwtSecurityTokenHandler();
+
             try
             {
                 var principal = tokenHandler.ValidateToken(accessToken, _tokenValidationParameters, out var _);
@@ -100,9 +93,12 @@ namespace AttendifyServerProjectC.Controllers
                     return NotFound();
                 }
 
+                var roles = await _userManager.GetRolesAsync(user);
+
                 var claims = new Dictionary<string, string>
         {
-            { "email", user.Email }
+            { "email", user.Email },
+            { "role", roles.FirstOrDefault() } 
         };
 
                 return Ok(claims);
@@ -112,33 +108,37 @@ namespace AttendifyServerProjectC.Controllers
                 return Unauthorized("Invalid token.");
             }
         }
-
-
-        private string GenerateJwtToken(IdentityUser user)
+        
+        private async Task<string> GenerateJwtTokenAsync(IdentityUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            //var key = Encoding.ASCII.GetBytes(_config["Jwt:SecretKey"]);
             var key = Encoding.UTF8.GetBytes(_config["Jwt:SecretKey"]);
+
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Email, user.Email)
+            };
+
+            foreach (var role in userRoles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-            new Claim(ClaimTypes.NameIdentifier, user.Id),
-            new Claim(ClaimTypes.Email, user.Email)
-                }),
-                Issuer = _config["Jwt:Issuer"], 
-                Audience = _config["Jwt:Audience"], 
-                Expires = DateTime.UtcNow.AddDays(7),                                       // kan dit aanpassen om de keys korter te maken
+                Subject = new ClaimsIdentity(claims),
+                Issuer = _config["Jwt:Issuer"],
+                Audience = _config["Jwt:Audience"],
+                Expires = DateTime.UtcNow.AddDays(7),                                       //can change this ot change how long keys are valid
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            var tokenString = tokenHandler.WriteToken(token);
-            _logger.LogInformation("AAAAA Generated token: {Token}", tokenString);
-
             return tokenHandler.WriteToken(token);
         }
-
 
         //-----------------------------------------------------------login--------------------------------------------------------
 
@@ -175,6 +175,7 @@ namespace AttendifyServerProjectC.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
+            // how the tables are connected in db:
             // ASPnetroles <-> ASPnetuserroles <-> ASPnetusers
             var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == registrationModel.Role);
             if (role == null)

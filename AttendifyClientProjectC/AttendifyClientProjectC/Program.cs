@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.Services.AddBlazoredLocalStorage();
@@ -21,15 +22,20 @@ builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStat
 //builder.Services.AddAuthorizationCore();
 builder.Services.AddAuthorizationCore(options =>
 {
-    options.AddPolicy("IsAllowedPolicy", policy =>
-        policy.Requirements.Add(new IsAllowedRequirement(true))); 
+    options.AddPolicy("IsAllowedPolicy", policy =>                                  //just for testing
+        policy.Requirements.Add(new IsAllowedRequirement(true)));
+    options.AddPolicy("IsAdminPolicy", policy =>
+    {
+        policy.Requirements.Add(new CustomRoleRequirement()); 
+    });
 }); // this works! huzzah
 
-builder.Services.AddSingleton<IAuthorizationHandler, IsAllowedHandler>();
+builder.Services.AddSingleton<IAuthorizationHandler, IsAllowedHandler>();           //also just for testing. dont forget to remove this later, me 
+builder.Services.AddScoped<IAuthorizationHandler, RoleBasedAuthorizationHandler>();
 builder.Services.AddSingleton<IAuthorizationPolicyProvider,DefaultAuthorizationPolicyProvider>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<EmailService>();
-
+builder.Services.AddScoped<AdminUserService>();
 
 
 await builder.Build().RunAsync();
