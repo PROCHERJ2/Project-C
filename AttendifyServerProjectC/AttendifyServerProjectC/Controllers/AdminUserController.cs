@@ -5,6 +5,7 @@ using AttendifySharedProjectC.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace AttendifyServerProjectC.Controllers
 {
@@ -15,12 +16,14 @@ namespace AttendifyServerProjectC.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ILogger<AdminUserController> _logger;
 
-        public AdminUserController(ApplicationDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public AdminUserController(ApplicationDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, ILogger<AdminUserController> logger)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
+            _logger = logger;
         }
 
         [HttpGet("getusers")]
@@ -68,27 +71,46 @@ namespace AttendifyServerProjectC.Controllers
         [HttpPost("accept-request")]
         public async Task<IActionResult> AcceptRequest([FromBody] string userId)
         {
+            _logger.LogInformation("Inside Accept Request");
             var verification = await _context.UserRoleVerifications.FirstOrDefaultAsync(v => v.UserId == userId);
+
             if (verification == null)
             {
-                return NotFound();
+                return NotFound("Verification request not found.");
             }
 
-            verification.VerificationStatus = "Accepted";
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            var requestedRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == verification.RequestedRole);
+            if (requestedRole == null)
+            {
+                return NotFound($"Requested role '{verification.RequestedRole}' not found.");
+            }
 
             var userRole = await _context.UserRoles.FirstOrDefaultAsync(ur => ur.UserId == userId);
             if (userRole != null)
             {
-                var newRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == verification.RequestedRole);
-                if (newRole != null)
-                {
-                    userRole.RoleId = newRole.Id; 
-                }
+                _context.UserRoles.Remove(userRole);
+                await _context.SaveChangesAsync();
             }
 
+            var newUserRole = new IdentityUserRole<string>
+            {
+                UserId = userId,
+                RoleId = requestedRole.Id
+            };
+            _context.UserRoles.Add(newUserRole);
             await _context.SaveChangesAsync();
-            return Ok();
+            verification.VerificationStatus = "accepted";
+            await _context.SaveChangesAsync();
+
+            return Ok("User role updated and request accepted.");
         }
+
 
         [HttpPost("deny-request")]
         public async Task<IActionResult> DenyRequest([FromBody] string userId)
