@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
+using AttendifySharedProjectC.Models;
+using Microsoft.Extensions.Logging;
 
 
 namespace AttendifyServerProjectC
@@ -15,6 +16,11 @@ namespace AttendifyServerProjectC
         public DbSet<EmailVerificationToken> EmailVerificationTokens { get; set; }
 
         public DbSet<UserRoleVerification> UserRoleVerifications { get; set; }
+
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventDay> EventDays { get; set; }
+        public DbSet<EventParticipant> EventParticipants { get; set; }
+
     }
 
     public class TestTable   //this is temp, remove this later after db connection test
@@ -42,5 +48,4 @@ namespace AttendifyServerProjectC
 
         public DateTime DateRequested { get; set; } = DateTime.UtcNow;
     }
-
 }

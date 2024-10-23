@@ -144,8 +144,6 @@ namespace AttendifyServerProjectC.Controllers
             return Ok();
         }
 
-
-
         //for changing roles
 
         [HttpGet("getroles")]
@@ -166,11 +164,9 @@ namespace AttendifyServerProjectC.Controllers
             var user = await _context.Users.FindAsync(model.UserId);
             if (user == null) return NotFound();
 
-            // Remove current roles
             var userRoles = await _context.UserRoles.Where(ur => ur.UserId == model.UserId).ToListAsync();
             _context.UserRoles.RemoveRange(userRoles);
 
-            // Add new role
             _context.UserRoles.Add(new IdentityUserRole<string>
             {
                 UserId = model.UserId,

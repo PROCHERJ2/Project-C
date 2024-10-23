@@ -36,6 +36,6 @@ builder.Services.AddSingleton<IAuthorizationPolicyProvider,DefaultAuthorizationP
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<AdminUserService>();
-
+builder.Services.AddScoped<AdminEventService>();
 
 await builder.Build().RunAsync();

@@ -5,7 +5,7 @@
 @using AttendifySharedProjectC.Models
 
 @inject Services.AdminUserService AdminUserService
-
+@inject Services.AdminEventService AdminEventService
 
 @page "/admin"
 
@@ -152,7 +152,137 @@ else
         <p>No role verification requests at the moment.</p>
     }
 
+    @*------------------------------------------------------------------Event Stuff------------------------------------------------------------------*@
 
+    <h3>All Events</h3>
+
+    @if (events == null)
+    {
+        <p>Loading events...</p>
+    }
+    else if (events.Count == 0)
+    {
+        <p>No events available.</p>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th colspan="2">Description</th>
+                    <th>Event Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var eventItem in paginatedEvents)
+                {
+                    <tr>
+                        <td>@eventItem.Name</td>
+                        <td colspan ="2">@eventItem.Description</td>
+                        <td>
+                            @if (eventItem.EventDays != null && eventItem.EventDays.Count > 0)
+                            {
+                                @foreach (var eventDay in eventItem.EventDays)
+                                {
+                                    <p>@eventDay.Day.ToString("d") @eventDay.StartTime - @eventDay.EndTime</p>
+                                }
+                            }
+                            else
+                            {
+                                <p>No event days available.</p>
+                            }
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" @* @onclick="() => EditEvent(eventItem)" *@>✏️ Edit</button>
+                            <button class="btn btn-danger" @onclick="() => ShowRemoveEventPopup(eventItem)">❌ Remove</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="pagination-controls">
+            <button class="btn btn-primary" @onclick="PreviousEventPage" disabled="@(!canGoBackEvent)">Previous</button>
+            <span>Page @currentEventPage of @totalEventPages</span>
+            <button class="btn btn-primary" @onclick="NextEventPage" disabled="@(!canGoNextEvent)">Next</button>
+        </div>
+    }
+
+    @if (showRemoveEventPopup)
+    {
+        <div class="modal show d-block" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm Event Removal</h5>
+                        <button type="button" class="btn-close" @onclick="CloseRemoveEventPopup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to remove the event @eventToRemove?.Name?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="CloseRemoveEventPopup">Cancel</button>
+                        <button type="button" class="btn btn-danger" @onclick="ConfirmRemoveEvent">Remove Event</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @*event creation*@
+    <h3>Create New Event</h3>
+
+<div class="card">
+    <div class="card-body">
+        <EditForm Model="@newEvent" OnValidSubmit="CreateEventAsync">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="mb-3">
+                <label for="eventName" class="form-label">Event Name</label>
+                <InputText id="eventName" class="form-control" @bind-Value="newEvent.Name" />
+            </div>
+
+            <div class="mb-3">
+                <label for="eventDescription" class="form-label">Event Description</label>
+                <InputTextArea id="eventDescription" class="form-control" @bind-Value="newEvent.Description" />
+            </div>
+
+            <div class="mb-3">
+                <label for="eventImage" class="form-label">Event Banner (Optional)</label>
+                <InputFile OnChange="HandleImageUpload" />
+            </div>
+
+            <h5>Event Days</h5>
+                @foreach (var (eventDay, index) in newEvent.EventDays.Select((day, idx) => (day, idx)))
+                {
+                    <div class="mb-3">
+                        <label>Event Day</label>
+                        <InputDate @bind-Value="eventDay.Day" class="form-control" />
+
+                        <label>Start Time</label>
+                        <input type="time" @bind="temptimeSlots[index].StartTime" class="form-control" />
+
+                        <label>End Time</label>
+                        <input type="time" @bind="temptimeSlots[index].EndTime" class="form-control" />
+
+                        <button type="button" class="btn btn-danger" @onclick="() => RemoveEventDay(eventDay)">Remove Day</button>
+                    </div>
+                }
+           
+
+            <button type="button" class="btn btn-primary" @onclick="AddEventDay">Add Event Day</button>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-success">Create Event</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+    @*event creation*@
+    @*------------------------------------------------------------------Event Stuff------------------------------------------------------------------*@
 
 }
 
@@ -176,6 +306,18 @@ else
 
     private List<RoleVerificationDto> roleVerifications;
 
+    //event stuff
+    private List<CreateEventDto> events;
+    private List<CreateEventDto> paginatedEvents;
+    private CreateEventDto eventToRemove;
+    private bool showRemoveEventPopup = false;
+
+    private int currentEventPage = 1;
+    private int eventPageSize = 10;
+    private int totalEventPages;
+    private bool canGoBackEvent => currentEventPage > 1;
+    private bool canGoNextEvent => currentEventPage < totalEventPages;
+
     protected override async Task OnInitializedAsync()
     {
         roleVerifications = await AdminUserService.GetUserRoleVerifications();
@@ -183,6 +325,12 @@ else
         allRoles = await AdminUserService.GetRoles();
         totalPages = (int)Math.Ceiling(users.Count / (double)pageSize);
         UpdatePaginatedUsers();
+
+        //for events
+        events = await AdminEventService.GetAllEvents();
+        totalEventPages = (int)Math.Ceiling(events.Count / (double)eventPageSize);
+        UpdatePaginatedEvents();
+        //for events
     }
 
     private void UpdatePaginatedUsers()
@@ -296,6 +444,7 @@ else
             {
                 selectedUser.Role = newRoleName;  // Update UI to reflect the role change
                 ClosePopup();
+                UpdatePaginatedUsers();
             }
         }
     }
@@ -316,6 +465,138 @@ else
 
     //for role changing
 
+    //for events
+    private void UpdatePaginatedEvents()
+    {
+        paginatedEvents = events
+            .OrderBy(e => e.Name)
+            .Skip((currentEventPage - 1) * eventPageSize)
+            .Take(eventPageSize)
+            .ToList();
+    }
+
+    private void NextEventPage()
+    {
+        if (canGoNextEvent)
+        {
+            currentEventPage++;
+            UpdatePaginatedEvents();
+        }
+    }
+
+    private void PreviousEventPage()
+    {
+        if (canGoBackEvent)
+        {
+            currentEventPage--;
+            UpdatePaginatedEvents();
+        }
+    }
+
+    private void ShowRemoveEventPopup(CreateEventDto eventItem)
+    {
+        eventToRemove = eventItem;
+        showRemoveEventPopup = true;
+    }
+
+    private void CloseRemoveEventPopup()
+    {
+        showRemoveEventPopup = false;
+        eventToRemove = null;
+    }
+
+    private async Task ConfirmRemoveEvent()
+    {
+        if (eventToRemove != null)
+        {
+            var success = await AdminEventService.RemoveEventAsync(eventToRemove.Id);
+            if (success)
+            {
+                events.Remove(eventToRemove);
+                UpdatePaginatedEvents();
+                CloseRemoveEventPopup();
+            }
+        }
+    }
+
+    //event creation
+
+    private CreateEventDto newEvent = new CreateEventDto
+        {
+            EventDays = new List<EventDayDto>()
+        };
+
+    private void PrepareEventForSubmission()
+    {
+        // if (newEvent.EventDays.Count != temptimeSlots.Count)
+        // {
+        //     //check to ensure the lists are aligned
+        //     Console.WriteLine("Mismatch in EventDays and timeSlots count");
+        //     return;
+        // }
+
+        for (int i = 0; i < newEvent.EventDays.Count; i++)
+        {
+            newEvent.EventDays[i].StartTime = temptimeSlots[i].StartTime.ToString("HH:mm");
+            newEvent.EventDays[i].EndTime = temptimeSlots[i].EndTime.ToString("HH:mm");
+        }
+    }
+
+    private async Task CreateEventAsync()
+    {
+        PrepareEventForSubmission();
+
+        // Comment here is for the logger. No longer necesary because it works, but il leave it in justt in case.
+
+        // for (int i = 0; i < temptimeSlots.Count; i++)
+        // {
+        //     Console.WriteLine($"Day {i + 1}: Start Time - {temptimeSlots[i].StartTime}, End Time - {temptimeSlots[i].EndTime}");
+        // }
+
+        // var successlog = await AdminEventService.LogEventAsync(newEvent);
+        // if (successlog)
+        // {
+        //     Console.WriteLine("Success in createeventasync");
+        //     // Handle success
+        // }
+        // else
+        // {
+        //     Console.WriteLine("Something went wrong i n event async");
+        // }
+        var success = await AdminEventService.CreateEventAsync(newEvent);
+    }
+
+    private List<TempTimeSlot> temptimeSlots = new List<TempTimeSlot>();
+
+    private void AddEventDay()
+    {
+        newEvent.EventDays.Add(new EventDayDto());
+        temptimeSlots.Add(new TempTimeSlot()); 
+    }
+
+
+    private void RemoveEventDay(EventDayDto eventDay)
+    {
+        var index = newEvent.EventDays.IndexOf(eventDay);
+        newEvent.EventDays.Remove(eventDay);
+        if (index >= 0 && index < temptimeSlots.Count)
+        {
+            temptimeSlots.RemoveAt(index);  
+        }
+    }
+
+
+    private async Task HandleImageUpload(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        var buffer = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(buffer);
+        newEvent.Image = Convert.ToBase64String(buffer);  
+    }
+
+
+    //for events
+
     public class RoleVerificationDto
     {
         public string UserId { get; set; }
@@ -325,6 +606,14 @@ else
         public string VerificationStatus { get; set; }
         public DateTime DateRequested { get; set; }
     }
+
+    //for event creation, remove timeslot if it doesnt work
+    public class TempTimeSlot
+    {
+        public TimeOnly StartTime { get; set; }
+        public TimeOnly EndTime { get; set; }
+    }
+
 
 }
 <style>
