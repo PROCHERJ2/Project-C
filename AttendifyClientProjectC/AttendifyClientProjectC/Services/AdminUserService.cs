@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using AttendifySharedProjectC.Models;
+using static AttendifyClientProjectC.Pages.Admin;
 
 namespace AttendifyClientProjectC.Services
 {
@@ -17,6 +18,17 @@ namespace AttendifyClientProjectC.Services
             return await _httpClient.GetFromJsonAsync<List<UserDto>>("https://localhost:7059/api/adminuser/getusers");
         }
 
+        public async Task<List<RoleDto>> GetRoles()
+        {
+            return await _httpClient.GetFromJsonAsync<List<RoleDto>>("https://localhost:7059/api/adminuser/getroles");
+        }
+
+        public async Task<bool> ChangeUserRoleAsync(string userId, string newRoleId)
+        {
+            var response = await _httpClient.PostAsJsonAsync("https://localhost:7059/api/adminuser/change-role", new { UserId = userId, NewRoleId = newRoleId });
+            return response.IsSuccessStatusCode;
+        }
+
         public async Task<List<Pages.Admin.RoleVerificationDto>> GetUserRoleVerifications()
         {
             return await _httpClient.GetFromJsonAsync<List<Pages.Admin.RoleVerificationDto>>("https://localhost:7059/api/adminuser/user-role-verifications");
@@ -31,6 +43,12 @@ namespace AttendifyClientProjectC.Services
         public async Task<bool> DenyRequestAsync(string userId)
         {
             var response = await _httpClient.PostAsJsonAsync("https://localhost:7059/api/adminuser/deny-request", userId);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> RemoveUserAsync(string userId)
+        {
+            var response = await _httpClient.DeleteAsync($"https://localhost:7059/api/adminuser/remove-user/{userId}");
             return response.IsSuccessStatusCode;
         }
 

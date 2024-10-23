@@ -39,8 +39,26 @@ else
                 <tr>
                     <td>@user.UserName</td>
                     <td>@user.Email</td>
-                    <td>@user.Role</td>
+                    <td>
+                        @if (user == selectedUser)
+                        {
+                            <select @onchange="(e) => RoleSelected(e, user)" class="form-select">
+                                <option selected disabled>Choose Role</option>
+                                @foreach (var role in allRoles)
+                                {
+                                    <option value="@role.Id">@role.Name</option>
+                                }
+                            </select>
+                        }
+                        else
+                        {
+                            <span @onclick="() => EditRole(user)" style="cursor: pointer; text-decoration: underline; color: blue;">@user.Role</span>
+                        }
+                    </td>
                     <td>@user.Id</td>
+                    <td>
+                        <button class="btn btn-danger" @onclick="() => ShowRemoveUserPopup(user)">❌</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -52,6 +70,47 @@ else
         <button class="btn btn-primary" @onclick="NextPage" disabled="@(!canGoNext)">Next</button>
     </div>
 
+    @if (showConfirmationPopup)
+    {
+        <div class="modal show d-block" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm Role Change</h5>
+                        <button type="button" class="btn-close" @onclick="ClosePopup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to change the role for @selectedUser.UserName to @newRoleName?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="ClosePopup">Cancel</button>
+                        <button type="button" class="btn btn-primary" @onclick="ConfirmRoleChange">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (showRemoveUserPopup)
+    {
+        <div class="modal show d-block" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm User Removal</h5>
+                        <button type="button" class="btn-close" @onclick="CloseRemovePopup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to remove user @userToRemove?.UserName?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="CloseRemovePopup">Cancel</button>
+                        <button type="button" class="btn btn-danger" @onclick="ConfirmRemoveUser">Remove User</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 
     <h3>User Role Verifications</h3>
 
@@ -98,8 +157,17 @@ else
 }
 
 @code {
+    private List<RoleDto> allRoles;
     private List<UserDto> users;
     private List<UserDto> paginatedUsers;
+    private UserDto selectedUser;
+    private string newRoleId;
+    private string newRoleName;
+
+    private UserDto userToRemove;
+    private bool showRemoveUserPopup = false;
+
+    private bool showConfirmationPopup = false;
     private int currentPage = 1;
     private int pageSize = 10; 
     private int totalPages;
@@ -112,6 +180,7 @@ else
     {
         roleVerifications = await AdminUserService.GetUserRoleVerifications();
         users = await AdminUserService.GetUsers();
+        allRoles = await AdminUserService.GetRoles();
         totalPages = (int)Math.Ceiling(users.Count / (double)pageSize);
         UpdatePaginatedUsers();
     }
@@ -173,7 +242,79 @@ else
         };
     }
 
+    //removing users
 
+    private void ShowRemoveUserPopup(UserDto user)
+    {
+        userToRemove = user;
+        showRemoveUserPopup = true;
+    }
+
+    private void CloseRemovePopup()
+    {
+        showRemoveUserPopup = false;
+        userToRemove = null;
+    }
+
+    private async Task ConfirmRemoveUser()
+    {
+        if (userToRemove != null)
+        {
+            var success = await AdminUserService.RemoveUserAsync(userToRemove.Id);
+            if (success)
+            {
+                users.Remove(userToRemove);                         // Removes user from UI
+                UpdatePaginatedUsers();  
+                CloseRemovePopup();
+            }
+        }
+    }
+
+    //removing users
+
+    //for role changing
+
+    private void EditRole(UserDto user)
+    {
+        selectedUser = user;
+    }
+
+    private void RoleSelected(ChangeEventArgs e, UserDto user)
+    {
+        newRoleId = e.Value.ToString();
+        newRoleName = allRoles.FirstOrDefault(r => r.Id == newRoleId)?.Name;
+        selectedUser = user;
+        showConfirmationPopup = true;
+    }
+
+    private async Task ConfirmRoleChange()
+    {
+        if (selectedUser != null && !string.IsNullOrEmpty(newRoleId))
+        {
+            var success = await AdminUserService.ChangeUserRoleAsync(selectedUser.Id, newRoleId);
+            if (success)
+            {
+                selectedUser.Role = newRoleName;  // Update UI to reflect the role change
+                ClosePopup();
+            }
+        }
+    }
+
+    private void ClosePopup()
+    {
+        showConfirmationPopup = false;
+        newRoleId = null;
+        newRoleName = null;
+    }
+
+    public class RoleDto
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+
+
+    //for role changing
 
     public class RoleVerificationDto
     {

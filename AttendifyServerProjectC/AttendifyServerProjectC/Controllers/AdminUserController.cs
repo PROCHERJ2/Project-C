@@ -127,9 +127,68 @@ namespace AttendifyServerProjectC.Controllers
             return Ok();
         }
 
+        [HttpDelete("remove-user/{userId}")]
+        public async Task<IActionResult> RemoveUser(string userId)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) return NotFound();
+
+            _context.Users.Remove(user);
+
+            var userRoles = _context.UserRoles.Where(ur => ur.UserId == userId);
+            _context.UserRoles.RemoveRange(userRoles);
+            var userVerifications = _context.UserRoleVerifications.Where(uv => uv.UserId == userId);
+            _context.UserRoleVerifications.RemoveRange(userVerifications);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
 
 
 
+        //for changing roles
+
+        [HttpGet("getroles")]
+        public async Task<IActionResult> GetRoles()
+        {
+            var roles = await _context.Roles.Select(r => new RoleDto
+            {
+                Id = r.Id,
+                Name = r.Name
+            }).ToListAsync();
+
+            return Ok(roles);
+        }
+
+        [HttpPost("change-role")]
+        public async Task<IActionResult> ChangeUserRole([FromBody] RoleChangeRequest model)
+        {
+            var user = await _context.Users.FindAsync(model.UserId);
+            if (user == null) return NotFound();
+
+            // Remove current roles
+            var userRoles = await _context.UserRoles.Where(ur => ur.UserId == model.UserId).ToListAsync();
+            _context.UserRoles.RemoveRange(userRoles);
+
+            // Add new role
+            _context.UserRoles.Add(new IdentityUserRole<string>
+            {
+                UserId = model.UserId,
+                RoleId = model.NewRoleId
+            });
+
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        //for changing roles
+
+    }
+
+    public class RoleDto
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
     }
     public class RoleVerificationDto   // is a bit double, can and will move this to the models folder
     {
@@ -139,5 +198,11 @@ namespace AttendifyServerProjectC.Controllers
         public string RequestedRole { get; set; }
         public string VerificationStatus { get; set; }
         public DateTime DateRequested { get; set; }
+    }
+
+    public class RoleChangeRequest
+    {
+        public string UserId { get; set; }
+        public string NewRoleId { get; set; }
     }
 }
